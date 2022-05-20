@@ -32,22 +32,16 @@
 body {
   font-family: "Rubik", Arial;
 }
+.dashboard {
+  padding: 1em 1em;
+  background-color: var(--very-dark-blue);
+}
 
 .dashboard li {
   list-style: none;
 }
 .dashboard a {
   text-decoration: none;
-}
-
-.attribution {
-  text-align: center;
-  color: var(--pale-blue);
-  margin-bottom: 2em;
-  font-size: 11px;
-}
-.attribution a {
-  color: var(--blue);
 }
 
 .dashboard__main-card {
@@ -153,4 +147,14 @@ body {
   font-weight: 300;
   justify-self: end;
   align-self: center;
+}
+
+.attribution {
+  text-align: center;
+  color: var(--pale-blue);
+  margin-bottom: 2em;
+  font-size: 11px;
+}
+.attribution a {
+  color: var(--blue);
 }
