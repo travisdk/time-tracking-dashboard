@@ -134,13 +134,13 @@ body {
 .dashboard__activity-card-info a:hover {
   filter: brightness(2);
 }
+
 .dashboard__activity-card-info p:nth-child(3) {
   color: white;
   font-size: 30px;
   font-weight: 300;
   align-self: center;
 }
-
 .dashboard__activity-card-info p:nth-child(4) {
   color: var(--pale-blue);
   font-size: 16px;
@@ -149,6 +149,13 @@ body {
   align-self: center;
 }
 
+.dashboard__activity-card-info p span {
+  display: none;
+}
+
+.dashboard__activity-card-info p span.active {
+  display: inline-block;
+}
 .attribution {
   text-align: center;
   color: var(--pale-blue);
