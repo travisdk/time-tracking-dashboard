@@ -42,12 +42,21 @@ const populateList = async () => {
       timeUsed.append(spanNow);
       const spanEarlier = document.createElement("span");
       spanEarlier.dataset[`${name}`] = activity.timeframes[name].previous;
-      spanEarlier.innerText = `${activity.timeframes[name].previous}hrs`;
-      timeUsedPreviously.append(spanEarlier);
+
+      let preText;
       if (name === "daily") {
+        preText = "Yesterday - ";
         spanNow.classList.add("active");
         spanEarlier.classList.add("active");
-      } // default
+        //default
+      } else if (name == "weekly") {
+        preText = "Last Week - ";
+      } else if (name == "monthly") {
+        preText = "Last Month - ";
+      }
+
+      spanEarlier.innerText = `${preText}${activity.timeframes[name].previous}hrs`;
+      timeUsedPreviously.append(spanEarlier);
     }
     cardInfo.append(h2Title, moreLink, timeUsed, timeUsedPreviously);
     listItem.append(cardInfo);

@@ -48,6 +48,9 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 ## My process
 
+Decided early on to generate/populate the activity-cards HTML elements programmatically using the supplied data from JSON file.
+A "hardcoded" approach with markup in the HTML + populating merely data might have been an easier solution.
+
 ### Built with
 
 - Semantic HTML5 markup
