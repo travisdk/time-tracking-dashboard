@@ -28,13 +28,19 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+html {
+  height: 100vh;
+}
 body {
   font-family: "Rubik", Arial;
   background-color: var(--very-dark-blue);
+  height: 100%;
 }
 .dashboard {
-  padding: 7em 1em;
+  display: grid;
+  grid-template-columns: 1fr 10fr 1fr;
+  justify-items: center;
+  padding: 7em 0em;
 }
 
 .dashboard li {
@@ -45,6 +51,8 @@ body {
 }
 
 .dashboard__main-card {
+  grid-column: 2/3;
+  grid-row: 1;
   border-radius: var(--border-radius);
   background-color: var(--dark-blue);
 }
@@ -89,12 +97,16 @@ body {
   color: var(--desaturated-blue);
 }
 
-/* TODO TAB virker ikke ordenligt : 2 hvide links opstår */
+/* TODO: Tabbing not working properly: 2 white links at the time */
 .dashboard__period-link:hover,
 .dashboard__period-link:focus {
   color: white;
 }
-
+.dashboard__activity-cards {
+  grid-column: 2/3;
+  grid-row: 2;
+  width: 100%;
+}
 .dashboard__activity-card {
   margin-top: 2em;
   padding-top: 1em;
@@ -166,3 +178,58 @@ body {
 .attribution a {
   color: var(--blue);
 }
+/* 
+@media (min-width: 961px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+  }
+  .dashboard {
+    display: grid;
+    padding: 0;
+    justify-content: center;
+    height: 60%;
+    grid-template-columns: 250px minmax(600px, 800px);
+  }
+  .dashboard__main-card {
+    margin-right: 2em;
+  }
+  .dashboard__activity-cards {
+    display: grid;
+    gap: 2em;
+
+    grid-template-columns: repeat(auto-fit, 250px);
+    justify-content: left;
+  }
+  .dashboard__activity-card {
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    height: 250px;
+  }
+  .dashboard__activity-card-info {
+    height: 80%;
+    width: 100%;
+    padding: 1.5em;
+    margin-top: auto;
+  }
+  .dashboard__activity-card-info p:nth-child(3) {
+    grid-column: 1/4;
+    grid-row: 2;
+  }
+  .dashboard__activity-card-info p:nth-child(4) {
+    grid-column: 1/4;
+    grid-row: 3;
+    justify-self: start;
+  }
+
+  .attribution {
+    position: absolute;
+    width: 400px;
+    bottom: 2em;
+    left: calc(50% - 200px);
+    text-align: center;
+  }
+} */
