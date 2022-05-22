@@ -7,6 +7,29 @@ const ACTIVITY_ARRAY = [
   { color: "soft-orange", icon: "icon-self-care.svg" },
 ];
 
+const periodLinks = document.querySelectorAll(".dashboard__period-link");
+periodLinks.forEach((link) => {
+  link.addEventListener("click", (e) => {
+    const currentActive = document.querySelector(
+      ".dashboard__period-link.active"
+    );
+    // clear the currently active link
+    currentActive && currentActive.classList.remove("active");
+    // set new active
+    e.target.classList.add("active");
+    const period = e.target.dataset.period;
+    allFieldsToSet = document.querySelectorAll(
+      ".dashboard__activity-card-info p span"
+    );
+    allFieldsToSet.forEach((field) => {
+      field.classList.remove("active");
+      if (field.dataset[period]) {
+        field.classList.add("active");
+      }
+    });
+  });
+});
+
 const loadJSON = async () => {
   const response = await fetch("../data.json");
   const jsonData = await response.json();
@@ -63,21 +86,5 @@ const populateList = async () => {
     listPlaceHolder.append(listItem);
   });
 };
-
-const periodLinks = document.querySelectorAll(".dashboard__period-link");
-periodLinks.forEach((link) => {
-  link.addEventListener("click", (e) => {
-    const period = e.target.dataset.period;
-    allFieldsToSet = document.querySelectorAll(
-      ".dashboard__activity-card-info p span"
-    );
-    allFieldsToSet.forEach((field) => {
-      field.classList.remove("active");
-      if (field.dataset[period]) {
-        field.classList.add("active");
-      }
-    });
-  });
-});
 
 populateList();
