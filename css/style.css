@@ -35,12 +35,17 @@ body {
   font-family: "Rubik", Arial;
   background-color: var(--very-dark-blue);
   height: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 4em 2em;
 }
 .dashboard {
   display: grid;
-  grid-template-columns: 1fr 10fr 1fr;
-  justify-items: center;
-  padding: 7em 0em;
+  grid-template-areas:
+    "main-card"
+    "activity-cards"
+    "attribution";
+  justify-content: center;
 }
 
 .dashboard li {
@@ -51,10 +56,9 @@ body {
 }
 
 .dashboard__main-card {
-  grid-column: 2/3;
-  grid-row: 1;
   border-radius: var(--border-radius);
   background-color: var(--dark-blue);
+  grid-area: main-card;
 }
 .dashboard__person {
   display: flex;
@@ -67,13 +71,13 @@ body {
   width: 25%;
   border-radius: 50%;
   border: 4px solid white;
-  margin: 2em 1.2em 2em 2em;
+  margin: 2em 1.2em 2em 1.5em;
 }
 
 .dashboard__name {
   width: 65%;
-  padding-right: 1em;
-  font-size: 26px;
+  padding-right: 0.5em;
+  font-size: 24px;
   font-weight: 300;
   color: #fff;
 }
@@ -85,7 +89,7 @@ body {
   color: var(--pale-blue);
 }
 .dashboard__period-selector {
-  padding: 1.8em 1em;
+  padding: 1.5em 1em;
 
   border-radius: var(--border-radius);
   background-color: var(--dark-blue);
@@ -103,14 +107,12 @@ body {
   color: white;
 }
 .dashboard__activity-cards {
-  grid-column: 2/3;
-  grid-row: 2;
-  width: 100%;
+  grid-area: activity-cards;
 }
 .dashboard__activity-card {
   margin-top: 2em;
   padding-top: 1em;
-  background-size: 90px;
+  background-size: 25%;
   background-repeat: no-repeat;
   background-position: 95% -10%;
   border-radius: var(--border-radius);
@@ -118,11 +120,12 @@ body {
 
 .dashboard__activity-card-info {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1.5fr;
   grid-template-rows: 1fr 2fr;
+  align-items: center;
   gap: 0.5em 0;
   margin-top: 2em;
-  padding: 2em 1.5em;
+  padding: 1.5em;
   justify-content: space-between;
   background-color: var(--dark-blue);
   border-radius: var(--border-radius);
@@ -131,7 +134,6 @@ body {
   font-size: 18px;
   color: white;
   font-weight: 500;
-  align-self: center;
 }
 
 .dashboard__activity-card-info a {
@@ -142,24 +144,23 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   justify-self: end;
-  align-self: center;
 }
 .dashboard__activity-card-info a:hover {
-  filter: brightness(2);
+  filter: brightness(200%);
 }
 
+/* current hours */
 .dashboard__activity-card-info p:nth-child(3) {
   color: white;
   font-size: 30px;
   font-weight: 300;
-  align-self: center;
 }
+/* last period hours */
 .dashboard__activity-card-info p:nth-child(4) {
   color: var(--pale-blue);
   font-size: 16px;
   font-weight: 300;
   justify-self: end;
-  align-self: center;
 }
 
 .dashboard__activity-card-info p span {
@@ -170,66 +171,12 @@ body {
   display: inline-block;
 }
 .attribution {
+  grid-area: attribution;
   text-align: center;
   color: var(--pale-blue);
-  margin-bottom: 2em;
+  margin: 2em 0;
   font-size: 11px;
 }
 .attribution a {
   color: var(--blue);
 }
-/* 
-@media (min-width: 961px) {
-  body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 0 auto;
-  }
-  .dashboard {
-    display: grid;
-    padding: 0;
-    justify-content: center;
-    height: 60%;
-    grid-template-columns: 250px minmax(600px, 800px);
-  }
-  .dashboard__main-card {
-    margin-right: 2em;
-  }
-  .dashboard__activity-cards {
-    display: grid;
-    gap: 2em;
-
-    grid-template-columns: repeat(auto-fit, 250px);
-    justify-content: left;
-  }
-  .dashboard__activity-card {
-    margin-top: 0;
-    display: flex;
-    flex-direction: column;
-    height: 250px;
-  }
-  .dashboard__activity-card-info {
-    height: 80%;
-    width: 100%;
-    padding: 1.5em;
-    margin-top: auto;
-  }
-  .dashboard__activity-card-info p:nth-child(3) {
-    grid-column: 1/4;
-    grid-row: 2;
-  }
-  .dashboard__activity-card-info p:nth-child(4) {
-    grid-column: 1/4;
-    grid-row: 3;
-    justify-self: start;
-  }
-
-  .attribution {
-    position: absolute;
-    width: 400px;
-    bottom: 2em;
-    left: calc(50% - 200px);
-    text-align: center;
-  }
-} */
