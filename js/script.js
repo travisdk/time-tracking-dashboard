@@ -1,4 +1,5 @@
-const JSON_URL = "https://travisdk.github.io/time-tracking-dashboard/data.json";
+const SITE_URL = "https://travisdk.github.io/time-tracking-dashboard/";
+const JSON_URL = SITE_URL + "data.json";
 
 const ACTIVITY_ARRAY = [
   { color: "salmon-red", icon: "icon-work.svg" },
@@ -46,7 +47,7 @@ const populateList = async () => {
     const listItem = document.createElement("li");
     listItem.classList.add("dashboard__activity-card");
     listItem.style.backgroundColor = `var(--${ACTIVITY_ARRAY[activityNo].color})`;
-    listItem.style.backgroundImage = `url("../images/${
+    listItem.style.backgroundImage = `url(${SITE_URL}+"images/${
       ACTIVITY_ARRAY[activityNo++].icon
     }")`;
     /* Different bg color/icon for each activity type */
