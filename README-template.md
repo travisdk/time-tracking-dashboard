@@ -64,22 +64,6 @@ A "hardcoded" approach with markup in the HTML + populating merely data might ha
 
 - Learned how to create and append HTML elements through Javascript code.
 
-<!--
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-``` -->
-
-```js
-listItem.style.backgroundColor = `var(--${COLOR_ARRAY[activityNo]})`;
-listItem.style.backgroundImage = `url: "../images/${ICON_ARRAY[activityNo++]}`;
-```
-
 ### Useful resources
 
 - [MDN article on data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes) - How to use data attributes
