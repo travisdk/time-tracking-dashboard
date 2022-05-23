@@ -1,3 +1,5 @@
+const JSON_URL = "https://travisdk.github.io/time-tracking-dashboard/data.json";
+
 const ACTIVITY_ARRAY = [
   { color: "salmon-red", icon: "icon-work.svg" },
   { color: "soft-blue", icon: "icon-play.svg" },
@@ -31,7 +33,7 @@ periodLinks.forEach((link) => {
 });
 
 const loadJSON = async () => {
-  const response = await fetch("../data.json");
+  const response = await fetch(JSON_URL);
   const jsonData = await response.json();
   return jsonData;
 };
